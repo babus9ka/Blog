@@ -1,6 +1,10 @@
+<?php include "header.php"; ?>
+<?php include "post.php"; ?>
 <?php
-include "header.php";
+$post = new Post($db);
+$post->addPost();
 ?>
+
 
 <div class="container">
     <div class="row justify-content-center">
