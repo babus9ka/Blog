@@ -16,4 +16,9 @@ class Post{
             return false;
         }
     }
+    public function getPost(){
+        $sql="SELECT * FROM posts";
+        $result = mysqli_query($this->db, $sql);
+        return $result;
+    }
 }

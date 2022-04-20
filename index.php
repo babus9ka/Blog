@@ -1,11 +1,19 @@
 <?php
-include ('header.php');
+include ("header.php");
+include ("post.php");
+?>
+
+<?php
+$post = new Post($db);
+$post = $post->getPost();
+
+
 ?>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <?php for ($i=0;$i < 100; $i++) {?>
+            <?php foreach($post as $item) {?>
             <div class="media">
                 <div class="media-left media-top">
                     <img src="images/tree.jpg" class="media-object" style="width: 200px; " >
@@ -15,8 +23,9 @@ include ('header.php');
                     </p>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h4>
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis deserunt dicta ducimus officia omnis quae rem tempore tenetur veritatis voluptatum. Ab atque dolore eveniet hic iure laboriosam praesentium sequi soluta.
+                    <h4 class="media-heading"><a href=""><?=$item['title']?></a></h4>
+
+                    <?=htmlspecialchars_decode($item['description'])?>
                 </div>
             </div>
             <?php }?>
@@ -29,6 +38,9 @@ include ('header.php');
     }
     img {
         margin-right: 10px;
+    }
+    .media{
+        margin-top: 10px;
     }
 
 </style>
