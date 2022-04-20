@@ -7,11 +7,13 @@ class Post{
         $this->db = $db;
     }
 
-    public function addPost($title = 'a title', $description = 'a description'){
+    public function addPost($title, $description){
     $sql = "INSERT INTO posts(title,description)VALUES('$title', '$description')";
     $result = mysqli_query($this->db, $sql);
-    if ($result){
-        echo 'post added succesfully';
-    }
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
