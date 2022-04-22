@@ -16,10 +16,10 @@ $post = $post->getPost();
             <?php foreach($post as $item) {?>
             <div class="media">
                 <div class="media-left media-top">
-                    <img src="images/tree.jpg" class="media-object" style="width: 200px; " >
+                    <img src="images/<?=$item['image']?>" class="media-object" style="width: 200px; " >
                     <p>
                         Author: Admin <br>
-                        Created:2020-04-20
+                        Created:<?=date('Y-m-d',strtotime($item['created_at']))  ?>
                     </p>
                 </div>
                 <div class="media-body">
