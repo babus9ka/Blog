@@ -23,7 +23,7 @@ $post = $post->getPost();
                     </p>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href=""><?=$item['title']?></a></h4>
+                    <h4 class="media-heading"><a href="view.php?slug=<?= $item['slug']?>"><?=$item['title']?></a></h4>
 
                     <?=htmlspecialchars_decode($item['description'])?>
                 </div>
@@ -42,5 +42,4 @@ $post = $post->getPost();
     .media{
         margin-top: 10px;
     }
-
 </style>

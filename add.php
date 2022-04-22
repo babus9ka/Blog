@@ -7,11 +7,11 @@ $post = new Post($db);
 if (isset($_POST['btnSubmit'])){
     $date = date('Y-m-d');
 
-    echo $date;
     if (!empty($_POST['title'])&&!empty($_POST['description'])) {
         $title = strip_tags($_POST['title']);
+        $slug = createSlug($title);
         $description = $_POST['description'];
-        $record = $post->addPost($title, $description, uploadImage(),$date);
+        $record = $post->addPost($title, $description, uploadImage(),$date,$slug);
         if ($record) {
             echo "<div class='text-center alert alert-success'>Post added susccessfuly!</div>";
         }
@@ -19,9 +19,7 @@ if (isset($_POST['btnSubmit'])){
         echo"<div class='text-center alert alert-danger'>Every filed is required!</div>";
     }
 }
-
 ?>
-
 
 <div class="container">
     <div class="row justify-content-center">
